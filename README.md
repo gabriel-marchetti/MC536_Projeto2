@@ -11,11 +11,11 @@ José Maurício Vasconcellos Junior                        (219255)
 Você foi contratado para reformular um sistema de consulta a dados altamente estruturados. As principais operações consistem em realizar análises estatísticas sobre grandes volumes de dados históricos e imutáveis. As consultas acessam frequentemente um número pequeno de atributos, mas um número grande de registros. O sistema é utilizado por analistas de dados que preferem uma integração direta com linguagens como Python ou R.
 
 Requisitos Técnicos:
--Predominância de operações de leitura e agregação sobre grandes datasets.
--Alta compressão e performance em operações de leitura.
--Baixa frequência de escrita ou atualização.
--Integração com notebooks ou scripts de análise.
--Confiabilidade em leituras, mas sem exigência de controle transacional complexo.
+- Predominância de operações de leitura e agregação sobre grandes datasets.
+- Alta compressão e performance em operações de leitura.
+- Baixa frequência de escrita ou atualização.
+- Integração com notebooks ou scripts de análise.
+- Confiabilidade em leituras, mas sem exigência de controle transacional complexo.
 
 ### Justificativa uso do Banco de Dados.
 O grupo escolheu trabalhar com o **DuckDB**, pois se tratando de gerar relatórios estatísticos da base de dados de grande volume não precisaremos realizar nenhuma (ou poucas) operações de inserção e muitas operações de leitura. No nosso projeto ainda precisaremos de algum grau de normalização, portanto, conseguimos reduzir a quantidade de tabelas para três tabelas, em contraste ao primeiro projeto, que possuia 9 tabelas. Além disso, como as consultas terão poucos atributos podemos assumir que haverá pouca complexidade dos JOINS mas com alto volume de dados. 
