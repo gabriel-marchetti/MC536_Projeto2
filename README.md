@@ -1,6 +1,6 @@
 # MC536_Projeto2
 
-# Grupo:
+### Grupo:
 ```
 Nome-----------------------------    RA------
 Gabriel Cunha Marchetti              (251055)
