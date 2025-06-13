@@ -13,6 +13,49 @@ ARQUIVOS_ENADE = [
 ARQUIVO_IDEB = f'{PATH_DADOS}ideb_saeb_2017_2019_2021_2023.csv'
 DB_FILE = 'database.duckdb'
 
+
+def get_uf_full_name(sigla : str) -> str:
+    if not isinstance(sigla, str):
+        raise TypeError("sigla em get_uf_full_name(sigla) deve ser do tipo str")
+
+    uf_dict = {
+        'AC': 'Acre',
+        'AL': 'Alagoas',
+        'AP': 'Amapá',
+        'AM': 'Amazonas',
+        'BA': 'Bahia',
+        'CE': 'Ceará',
+        'DF': 'Distrito Federal',
+        'ES': 'Espírito Santo',
+        'GO': 'Goiás',
+        'MA': 'Maranhão',
+        'MT': 'Mato Grosso',
+        'MS': 'Mato Grosso do Sul',
+        'MG': 'Minas Gerais',
+        'PA': 'Pará',
+        'PB': 'Paraíba',
+        'PR': 'Paraná',
+        'PE': 'Pernambuco',
+        'PI': 'Piauí',
+        'RJ': 'Rio de Janeiro',
+        'RN': 'Rio Grande do Norte',
+        'RS': 'Rio Grande do Sul',
+        'RO': 'Rondônia',
+        'RR': 'Roraima',
+        'SC': 'Santa Catarina',
+        'SP': 'São Paulo',
+        'SE': 'Sergipe',
+        'TO': 'Tocantins'
+    }
+    
+    key = sigla.strip().upper()
+    try:
+        return uf_dict[key]
+    except KeyError:
+        raise ValueError(f"Sigla não contida em uf_dict: {sigla}")
+
+
+
 def criar_tabelas(con):
     """
     Cria as tabelas Municipio, Escola e Curso no banco de dados DuckDB
@@ -29,8 +72,6 @@ def criar_tabelas(con):
             SIGLA_UF VARCHAR(2),
             NOME_UF VARCHAR(50),
             NOME_MUNICIPIO VARCHAR(100),
-            QUANTIDADE_IES INTEGER,
-            QUANTIDADE_ESCOLA INTEGER,
             PRIMARY KEY (SIGLA_UF, NOME_MUNICIPIO)
         );
     ''')
@@ -46,7 +87,6 @@ def criar_tabelas(con):
             IDEB_REND2 DOUBLE,
             IDEB_REND3 DOUBLE,
             IDEB_REND4 DOUBLE,
-            IDEB_REND_MEDIO DOUBLE,
             IDEB_NOTA DOUBLE,
             SAEB_NOTA_MAT DOUBLE,
             SAEB_NOTA_PORT DOUBLE,
@@ -154,7 +194,7 @@ def carregar_dados(con):
     df_escola_final = pd.concat(lista_df_anos, ignore_index=True)
     df_escola_final.rename(columns={v: k for k, v in base_cols_map.items()}, inplace=True)
 
-    for col in ['IDEB_REND1', 'IDEB_REND2', 'IDEB_REND3', 'IDEB_REND4', 'IDEB_REND_MEDIO']:
+    for col in ['IDEB_REND1', 'IDEB_REND2', 'IDEB_REND3', 'IDEB_REND4']:
         df_escola_final[col] = np.nan
     df_escola_final.dropna(subset=['CODIGO_ESCOLA', 'ANO_ESCOLA'], inplace=True)
     df_escola_final = df_escola_final.drop_duplicates(subset=['CODIGO_ESCOLA', 'ANO_ESCOLA'])
@@ -220,28 +260,18 @@ def carregar_dados(con):
     df_curso_final['NOME_MUNICIPIO'] = df_enade[enade_cols['municipio']]
     df_curso_final = df_curso_final.drop_duplicates(subset=['CODIGO_IES', 'NOME_CURSO', 'ANO_ENADE'])
     
-    # --- 3. Criar e Popular Tabela Municipio (com agregações) ---
-    escola_counts = df_escola_final.groupby(['SIGLA_UF', 'NOME_MUNICIPIO'])['CODIGO_ESCOLA'].nunique().reset_index()
-    escola_counts = escola_counts.rename(columns={'CODIGO_ESCOLA': 'QUANTIDADE_ESCOLA'})
+    # --- 3. Criar e Popular Tabela Municipio ---
+    # Obter municípios únicos das escolas e cursos
+    municipios_escola = df_escola_final[['SIGLA_UF', 'NOME_MUNICIPIO']].drop_duplicates()
+    municipios_curso = df_curso_final[['SIGLA_UF', 'NOME_MUNICIPIO']].drop_duplicates()
     
-    ies_counts = df_curso_final.groupby(['SIGLA_UF', 'NOME_MUNICIPIO'])['CODIGO_IES'].nunique().reset_index()
-    ies_counts = ies_counts.rename(columns={'CODIGO_IES': 'QUANTIDADE_IES'})
+    # Combinar todos os municípios
+    df_municipio = pd.concat([municipios_escola, municipios_curso]).drop_duplicates()
     
-    df_municipio = pd.merge(escola_counts, ies_counts, on=['SIGLA_UF', 'NOME_MUNICIPIO'], how='outer')
-    df_municipio.fillna(0, inplace=True)
+    # Usa a função get_uf_full_name para obter o nome completo da UF
+    df_municipio['NOME_UF'] = df_municipio['SIGLA_UF'].apply(get_uf_full_name)
     
-    actual_sigla_uf_col = base_cols_map['SIGLA_UF']
-    actual_nome_uf_col = find_column_name(df_ideb_raw.columns, 'Nome da UF')
-    if actual_nome_uf_col is None:
-        actual_nome_uf_col = actual_sigla_uf_col # Fallback
-    
-    map_df = df_ideb_raw[[actual_sigla_uf_col, actual_nome_uf_col]].drop_duplicates()
-    map_df.columns = ['SIGLA_UF', 'NOME_UF']
-    map_series = map_df.set_index('SIGLA_UF')['NOME_UF']
-    
-    df_municipio['NOME_UF'] = df_municipio['SIGLA_UF'].map(map_series)
-    
-    df_municipio_final = df_municipio[['SIGLA_UF', 'NOME_UF', 'NOME_MUNICIPIO', 'QUANTIDADE_IES', 'QUANTIDADE_ESCOLA']]
+    df_municipio_final = df_municipio[['SIGLA_UF', 'NOME_UF', 'NOME_MUNICIPIO']]
     df_municipio_final.dropna(subset=['SIGLA_UF', 'NOME_MUNICIPIO'], inplace=True)
     
     con.register('df_municipio_final', df_municipio_final)
@@ -258,6 +288,17 @@ def carregar_dados(con):
     colunas_curso_db = [desc[0] for desc in con.execute("DESCRIBE Curso").fetchall()]
     con.execute(f"INSERT INTO Curso SELECT {','.join(colunas_curso_db)} FROM df_curso_para_inserir")
 
+def salvar_resultado_txt(resultado_df, titulo, arquivo_txt):
+    """
+    Salva o resultado de uma consulta em um arquivo de texto.
+    """
+    with open(arquivo_txt, 'a', encoding='utf-8') as f:
+        f.write(f"\n{'='*80}\n")
+        f.write(f"{titulo}\n")
+        f.write(f"{'='*80}\n")
+        f.write(resultado_df.to_string(index=False))
+        f.write(f"\n{'='*80}\n\n")
+
 def main():
     """
     Função principal que orquestra todo o processo.
@@ -267,16 +308,241 @@ def main():
     criar_tabelas(con)
     carregar_dados(con)
     
-        
-    print("\nAmostra de dados da tabela 'Municipio':")
-    print(con.execute("SELECT * FROM Municipio ORDER BY QUANTIDADE_IES DESC, QUANTIDADE_ESCOLA DESC LIMIT 5").df())
-
-    print("\nAmostra de dados da tabela 'Escola':")
-    print(con.execute("SELECT NOME_ESCOLA, ANO_ESCOLA, NOME_MUNICIPIO, IDEB_NOTA FROM Escola WHERE IDEB_NOTA IS NOT NULL LIMIT 5").df())
-
-    print("\nAmostra de dados da tabela 'Curso':")
-    print(con.execute("SELECT NOME_IES, NOME_CURSO, NOTA_ENADE_CONTINUA FROM Curso WHERE NOTA_ENADE_CONTINUA IS NOT NULL ORDER BY NOTA_ENADE_CONTINUA DESC LIMIT 5").df())
+    # Nome do arquivo de saída
+    arquivo_resultados = 'resultados_consultas.txt'
+    # Limpar arquivo de resultados se existir
+    with open(arquivo_resultados, 'w', encoding='utf-8') as f:
+        f.write("="*80)
     
+    # CONSULTA 1: Ranking de Estados por Performance IDEB
+    print("\n1. RANKING DE ESTADOS POR PERFORMANCE IDEB")
+    print("-"*60)
+    query1 = """
+    WITH estados_ideb AS (
+        SELECT 
+            SIGLA_UF,
+            AVG(IDEB_NOTA) as media_ideb,
+            COUNT(DISTINCT CODIGO_ESCOLA) as total_escolas,
+            MIN(IDEB_NOTA) as min_ideb,
+            MAX(IDEB_NOTA) as max_ideb,
+            PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY IDEB_NOTA) as mediana_ideb
+        FROM Escola 
+        WHERE IDEB_NOTA IS NOT NULL
+        GROUP BY SIGLA_UF
+    )
+    SELECT 
+        e.SIGLA_UF,
+        (SELECT NOME_UF FROM Municipio m WHERE m.SIGLA_UF = e.SIGLA_UF LIMIT 1) as NOME_UF,
+        ROUND(e.media_ideb, 3) as "IDEB Médio",
+        e.total_escolas as "Total Escolas",
+        ROUND(e.min_ideb, 3) as "IDEB Mínimo",
+        ROUND(e.max_ideb, 3) as "IDEB Máximo",
+        ROUND(e.mediana_ideb, 3) as "IDEB Mediana"
+    FROM estados_ideb e
+    ORDER BY e.media_ideb DESC
+    LIMIT 10;
+    """
+    result1 = con.execute(query1).df()
+    print(result1.to_string(index=False))
+    salvar_resultado_txt(result1, "1. RANKING DE ESTADOS POR PERFORMANCE IDEB", arquivo_resultados)
+    
+    # CONSULTA 2: Top Cursos por Nota ENADE
+    print("\n\n2. TOP CURSOS POR NOTA ENADE")
+    print("-"*60)
+    query2 = """
+    WITH cursos_stats AS (
+        SELECT 
+            NOME_CURSO,
+            AVG(NOTA_ENADE_CONTINUA) as nota_media,
+            COUNT(*) as total_ofertas,
+            COUNT(DISTINCT SIGLA_UF) as estados_presentes,
+            COUNT(DISTINCT CODIGO_IES) as ies_diferentes,
+            SUM(TOTAL_INSCRITOS) as total_inscritos_geral
+        FROM Curso 
+        WHERE NOTA_ENADE_CONTINUA IS NOT NULL
+        GROUP BY NOME_CURSO
+        HAVING COUNT(*) >= 30  -- Cursos com pelo menos 30 ofertas
+    )
+    SELECT 
+        NOME_CURSO as "Nome do Curso",
+        ROUND(nota_media, 3) as "Nota ENADE Média",
+        total_ofertas as "Total Ofertas",
+        estados_presentes as "Estados Presentes", 
+        ies_diferentes as "IES Diferentes",
+        total_inscritos_geral as "Total Inscritos"
+    FROM cursos_stats
+    ORDER BY nota_media DESC
+    LIMIT 15;
+    """
+    result2 = con.execute(query2).df()
+    print(result2.to_string(index=False))
+    salvar_resultado_txt(result2, "2. TOP CURSOS POR NOTA ENADE", arquivo_resultados)
+    
+    # CONSULTA 3: Análise Temporal do IDEB
+    print("\n\n3. EVOLUÇÃO TEMPORAL DO IDEB POR ESTADO")
+    print("-"*60)
+    query3 = """
+    WITH evolucao_temporal AS (
+        SELECT 
+            SIGLA_UF,
+            AVG(CASE WHEN ANO_ESCOLA = 2017 THEN IDEB_NOTA END) as ideb_2017,
+            AVG(CASE WHEN ANO_ESCOLA = 2019 THEN IDEB_NOTA END) as ideb_2019,
+            AVG(CASE WHEN ANO_ESCOLA = 2021 THEN IDEB_NOTA END) as ideb_2021,
+            AVG(CASE WHEN ANO_ESCOLA = 2023 THEN IDEB_NOTA END) as ideb_2023
+        FROM Escola
+        WHERE IDEB_NOTA IS NOT NULL
+        GROUP BY SIGLA_UF
+    )
+    SELECT 
+        e.SIGLA_UF,
+        (SELECT NOME_UF FROM Municipio m WHERE m.SIGLA_UF = e.SIGLA_UF LIMIT 1) as "Estado",
+        ROUND(e.ideb_2017, 3) as "IDEB 2017",
+        ROUND(e.ideb_2019, 3) as "IDEB 2019",
+        ROUND(e.ideb_2021, 3) as "IDEB 2021", 
+        ROUND(e.ideb_2023, 3) as "IDEB 2023",
+        ROUND(e.ideb_2023 - e.ideb_2017, 3) as "Variação 2017-2023",
+        CASE 
+            WHEN e.ideb_2023 > e.ideb_2017 THEN 'Crescimento'
+            WHEN e.ideb_2023 < e.ideb_2017 THEN 'Declínio'
+            ELSE 'Estável'
+        END as "Tendência"
+    FROM evolucao_temporal e
+    WHERE e.ideb_2017 IS NOT NULL AND e.ideb_2023 IS NOT NULL
+    ORDER BY "Variação 2017-2023" DESC;
+    """
+    result3 = con.execute(query3).df()
+    print(result3.to_string(index=False))
+    salvar_resultado_txt(result3, "3. EVOLUÇÃO TEMPORAL DO IDEB POR ESTADO", arquivo_resultados)
+    
+    # CONSULTA 4: Comparação Detalhada de Redes de Ensino
+    print("\n\n4. ANÁLISE COMPARATIVA DETALHADA DE REDES DE ENSINO")
+    print("-"*60)
+    query4 = """
+    WITH escolas_por_rede AS (
+        SELECT 
+            SIGLA_UF,
+            REDE_ESCOLA,
+            COUNT(DISTINCT CODIGO_ESCOLA) as total_escolas,
+            AVG(IDEB_NOTA) as ideb_medio,
+            AVG(SAEB_NOTA_MAT) as saeb_mat_medio,
+            AVG(SAEB_NOTA_PORT) as saeb_port_medio
+        FROM Escola
+        WHERE IDEB_NOTA IS NOT NULL AND REDE_ESCOLA IN ('Estadual', 'Federal', 'Privada')
+        GROUP BY SIGLA_UF, REDE_ESCOLA
+    ),
+    ies_por_categoria AS (
+        SELECT 
+            SIGLA_UF,
+            CASE 
+                WHEN UPPER(NOME_IES) LIKE '%FEDERAL%' OR UPPER(NOME_IES) LIKE '%UNIVERSIDADE FEDERAL%' 
+                     OR UPPER(NOME_IES) LIKE '%INSTITUTO FEDERAL%' THEN 'Pública Federal'
+                WHEN UPPER(NOME_IES) LIKE '%FUNDAÇÃO%' OR UPPER(NOME_IES) LIKE '%FILANTRÓPICA%'
+                     OR UPPER(NOME_IES) LIKE '%BENEFICENTE%' THEN 'Privada sem fins lucrativos'
+                ELSE 'Privada com fins lucrativos'
+            END as categoria_ies,
+            COUNT(DISTINCT CODIGO_IES) as total_ies,
+            AVG(NOTA_ENADE_CONTINUA) as enade_medio
+        FROM Curso
+        WHERE NOTA_ENADE_CONTINUA IS NOT NULL
+        GROUP BY SIGLA_UF, categoria_ies
+    ),
+    escolas_consolidado AS (
+        SELECT 
+            SIGLA_UF,
+            MAX(CASE WHEN REDE_ESCOLA = 'Estadual' THEN total_escolas END) as escolas_estadual,
+            MAX(CASE WHEN REDE_ESCOLA = 'Federal' THEN total_escolas END) as escolas_federal,
+            MAX(CASE WHEN REDE_ESCOLA = 'Privada' THEN total_escolas END) as escolas_privada,
+            MAX(CASE WHEN REDE_ESCOLA = 'Estadual' THEN ideb_medio END) as ideb_estadual,
+            MAX(CASE WHEN REDE_ESCOLA = 'Federal' THEN ideb_medio END) as ideb_federal,
+            MAX(CASE WHEN REDE_ESCOLA = 'Privada' THEN ideb_medio END) as ideb_privada
+        FROM escolas_por_rede
+        GROUP BY SIGLA_UF
+    ),
+    ies_consolidado AS (
+        SELECT 
+            SIGLA_UF,
+            MAX(CASE WHEN categoria_ies = 'Pública Federal' THEN total_ies END) as ies_publica_federal,
+            MAX(CASE WHEN categoria_ies = 'Privada sem fins lucrativos' THEN total_ies END) as ies_privada_sem_fins,
+            MAX(CASE WHEN categoria_ies = 'Privada com fins lucrativos' THEN total_ies END) as ies_privada_com_fins,
+            MAX(CASE WHEN categoria_ies = 'Pública Federal' THEN enade_medio END) as enade_publica_federal,
+            MAX(CASE WHEN categoria_ies = 'Privada sem fins lucrativos' THEN enade_medio END) as enade_privada_sem_fins,
+            MAX(CASE WHEN categoria_ies = 'Privada com fins lucrativos' THEN enade_medio END) as enade_privada_com_fins
+        FROM ies_por_categoria
+        GROUP BY SIGLA_UF
+    )
+    SELECT 
+        e.SIGLA_UF,
+        (SELECT NOME_UF FROM Municipio m WHERE m.SIGLA_UF = e.SIGLA_UF LIMIT 1) as "Estado",
+        COALESCE(e.escolas_estadual, 0) as "Esc. Estadual",
+        COALESCE(e.escolas_federal, 0) as "Esc. Federal", 
+        COALESCE(e.escolas_privada, 0) as "Esc. Privada",
+        ROUND(COALESCE(e.ideb_estadual, 0), 3) as "IDEB Estadual",
+        ROUND(COALESCE(e.ideb_federal, 0), 3) as "IDEB Federal",
+        ROUND(COALESCE(e.ideb_privada, 0), 3) as "IDEB Privada",
+        COALESCE(i.ies_publica_federal, 0) as "IES Públ Fed",
+        COALESCE(i.ies_privada_sem_fins, 0) as "IES Priv S/Fins",
+        COALESCE(i.ies_privada_com_fins, 0) as "IES Priv C/Fins",
+        ROUND(COALESCE(i.enade_publica_federal, 0), 3) as "ENADE Públ Fed",
+        ROUND(COALESCE(i.enade_privada_sem_fins, 0), 3) as "ENADE Priv S/Fins",
+        ROUND(COALESCE(i.enade_privada_com_fins, 0), 3) as "ENADE Priv C/Fins"
+    FROM escolas_consolidado e
+    LEFT JOIN ies_consolidado i ON e.SIGLA_UF = i.SIGLA_UF
+    WHERE (e.escolas_estadual > 0 OR e.escolas_federal > 0 OR e.escolas_privada > 0)
+       OR (i.ies_publica_federal > 0 OR i.ies_privada_sem_fins > 0 OR i.ies_privada_com_fins > 0)
+    ORDER BY COALESCE(i.enade_publica_federal, 0) DESC, COALESCE(e.ideb_federal, 0) DESC
+    LIMIT 20;
+    """
+    result4 = con.execute(query4).df()
+    print(result4.to_string(index=False))
+    salvar_resultado_txt(result4, "4. ANÁLISE COMPARATIVA DETALHADA DE REDES DE ENSINO", arquivo_resultados)
+    
+    # CONSULTA 5: Análise de Distribuição Geográfica das IES
+    print("\n\n5. DISTRIBUIÇÃO GEOGRÁFICA DAS IES POR QUALIDADE")
+    print("-"*60)
+    query5 = """
+    WITH ies_qualidade AS (
+        SELECT 
+            CODIGO_IES,
+            NOME_IES,
+            SIGLA_UF,
+            AVG(NOTA_ENADE_CONTINUA) as nota_media_ies,
+            COUNT(DISTINCT NOME_CURSO) as cursos_oferecidos,
+            SUM(TOTAL_INSCRITOS) as total_alunos,
+            CASE 
+                WHEN AVG(NOTA_ENADE_CONTINUA) >= 4.0 THEN 'Excelente'
+                WHEN AVG(NOTA_ENADE_CONTINUA) >= 3.0 THEN 'Boa'
+                WHEN AVG(NOTA_ENADE_CONTINUA) >= 2.0 THEN 'Regular'
+                ELSE 'Baixa'
+            END as categoria_qualidade
+        FROM Curso
+        WHERE NOTA_ENADE_CONTINUA IS NOT NULL
+        GROUP BY CODIGO_IES, NOME_IES, SIGLA_UF
+        HAVING COUNT(DISTINCT NOME_CURSO) >= 3  -- IES com pelo menos 3 cursos
+    ),
+    distribuicao_por_estado AS (
+        SELECT 
+            SIGLA_UF,
+            categoria_qualidade,
+            COUNT(*) as qtd_ies,
+            AVG(nota_media_ies) as nota_media_categoria,
+            SUM(total_alunos) as total_alunos_categoria
+        FROM ies_qualidade
+        GROUP BY SIGLA_UF, categoria_qualidade
+    )
+    SELECT 
+        d.SIGLA_UF,
+        (SELECT NOME_UF FROM Municipio m WHERE m.SIGLA_UF = d.SIGLA_UF LIMIT 1) as "Estado",
+        d.categoria_qualidade as "Categoria",
+        d.qtd_ies as "Qtd IES",
+        ROUND(d.nota_media_categoria, 3) as "Nota Média",
+        d.total_alunos_categoria as "Total Alunos"
+    FROM distribuicao_por_estado d
+    
+    ORDER BY d.nota_media_categoria DESC, d.qtd_ies DESC;
+    """
+    result5 = con.execute(query5).df()
+    print(result5.to_string(index=False))
+    salvar_resultado_txt(result5, "5. DISTRIBUIÇÃO GEOGRÁFICA DAS IES POR QUALIDADE", arquivo_resultados)
     con.close()
 
 if __name__ == "__main__":
