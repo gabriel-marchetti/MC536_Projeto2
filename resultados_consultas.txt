@@ -39,6 +39,28 @@ TECNOLOGIA EM ESTÉTICA E COSMÉTICA             2.671            191           
 
 
 ================================================================================
+2. TOP CURSOS POR NOTA ENADE
+================================================================================
+                     Nome do Curso  Nota ENADE Média  Total Ofertas  Estados Presentes  IES Diferentes  Total Inscritos
+                          MEDICINA             2.868            242                 27             242          25366.0
+        LETRAS-PORTUGUÊS E INGLÊS              2.802            132                 21             132           5318.0
+          PUBLICIDADE E PROPAGANDA             2.798            233                 24             233           8895.0
+                            DESIGN             2.776             87                 19              87           3912.0
+                        JORNALISMO             2.743            204                 27             204           7611.0
+                 CIÊNCIAS SOCIAIS              2.740             89                 26              89           4534.0
+                           TURISMO             2.728             59                 22              59           2254.0
+                    ARTES VISUAIS              2.718             72                 23              72           4193.0
+TECNOLOGIA EM PROCESSOS GERENCIAIS             2.686            188                 20             188          12559.0
+                  LETRAS - INGLÊS              2.676             82                 24              82           3511.0
+    TECNOLOGIA EM GESTÃO COMERCIAL             2.673            144                 21             144           7716.0
+TECNOLOGIA EM ESTÉTICA E COSMÉTICA             2.671            191                 24             191           7386.0
+                          NUTRIÇÃO             2.659            392                 27             392          14357.0
+                         HISTÓRIA              2.630            206                 27             206          15679.0
+                        GEOGRAFIA              2.591            135                 27             135          10279.0
+================================================================================
+
+
+================================================================================
 3. EVOLUÇÃO TEMPORAL DO IDEB POR ESTADO
 ================================================================================
 SIGLA_UF              Estado  IDEB 2017  IDEB 2019  IDEB 2021  IDEB 2023  Variação 2017-2023   Tendência
@@ -100,88 +122,807 @@ SIGLA_UF              Estado  Esc. Estadual  Esc. Federal  Esc. Privada  IDEB Es
 
 
 ================================================================================
-5. DISTRIBUIÇÃO GEOGRÁFICA DAS IES POR QUALIDADE
+5. DISTRIBUIÇÃO GEOGRÁFICA DAS IES POR QUALIDADE (POR MUNICÍPIO)
 ================================================================================
-SIGLA_UF              Estado Categoria  Qtd IES  Nota Média  Total Alunos
-      ES      Espírito Santo Excelente        1       4.620          55.0
-      RJ      Rio de Janeiro Excelente        2       4.465         172.0
-      SP           São Paulo Excelente        6       4.400        4845.0
-      MG        Minas Gerais Excelente        1       4.380        5143.0
-      CE               Ceará Excelente        1       4.247         626.0
-      RS   Rio Grande do Sul Excelente        2       4.230        3956.0
-      PR              Paraná Excelente        1       4.107        3606.0
-      BA               Bahia Excelente        1       4.000        3144.0
-      DF    Distrito Federal       Boa        2       3.522        4294.0
-      RJ      Rio de Janeiro       Boa       16       3.501       23356.0
-      RN Rio Grande do Norte       Boa        2       3.478        3746.0
-      MA            Maranhão       Boa        2       3.453         537.0
-      ES      Espírito Santo       Boa       13       3.404        6673.0
-      SP           São Paulo       Boa       31       3.394       24715.0
-      SC      Santa Catarina       Boa        5       3.379        6001.0
-      CE               Ceará       Boa        5       3.366        5833.0
-      MG        Minas Gerais       Boa       26       3.345       23579.0
-      PE          Pernambuco       Boa        5       3.326        5570.0
-      PB             Paraíba       Boa        1       3.288        2841.0
-      PR              Paraná       Boa       12       3.282       13234.0
-      RS   Rio Grande do Sul       Boa       13       3.265       10367.0
-      GO               Goiás       Boa        4       3.251        3194.0
-      BA               Bahia       Boa        7       3.207        3959.0
-      PA                Pará       Boa        2       3.195        1212.0
-      PI               Piauí       Boa        1       3.189          62.0
-      SE             Sergipe       Boa        1       3.183        2576.0
-      SC      Santa Catarina   Regular       28       2.562       13371.0
-      RS   Rio Grande do Sul   Regular       43       2.537       22188.0
-      AC                Acre   Regular        1       2.525        1133.0
-      RN Rio Grande do Norte   Regular        7       2.522        5139.0
-      ES      Espírito Santo   Regular       17       2.493        3632.0
-      AM            Amazonas   Regular        4       2.483        4371.0
-      MS  Mato Grosso do Sul   Regular        8       2.468        6150.0
-      MT         Mato Grosso   Regular        7       2.465        3215.0
-      DF    Distrito Federal   Regular       17       2.459       12077.0
-      MG        Minas Gerais   Regular       81       2.453       32042.0
-      PR              Paraná   Regular       49       2.438       74600.0
-      PB             Paraíba   Regular       10       2.437       10660.0
-      PI               Piauí   Regular       10       2.421        7050.0
-      CE               Ceará   Regular       26       2.419       16450.0
-      BA               Bahia   Regular       33       2.417       16008.0
-      MA            Maranhão   Regular        9       2.411        7374.0
-      PE          Pernambuco   Regular       22       2.410       21265.0
-      SP           São Paulo   Regular      137       2.401      104214.0
-      AL             Alagoas   Regular        6       2.394        6828.0
-      RJ      Rio de Janeiro   Regular       31       2.386       20422.0
-      PA                Pará   Regular       13       2.369        9734.0
-      GO               Goiás   Regular       28       2.342       13472.0
-      TO           Tocantins   Regular        8       2.339        4238.0
-      AP               Amapá   Regular        6       2.301        2223.0
-      SE             Sergipe   Regular        5       2.278        3006.0
-      RO            Rondônia   Regular       10       2.242        3763.0
-      RR             Roraima   Regular        2       2.223        1059.0
-      ES      Espírito Santo     Baixa        4       1.856         528.0
-      RS   Rio Grande do Sul     Baixa        6       1.804         872.0
-      SC      Santa Catarina     Baixa        7       1.802       32350.0
-      PB             Paraíba     Baixa        5       1.787        2142.0
-      MG        Minas Gerais     Baixa       43       1.773        8909.0
-      DF    Distrito Federal     Baixa        6       1.761        5402.0
-      RN Rio Grande do Norte     Baixa        6       1.755        1740.0
-      MA            Maranhão     Baixa       17       1.723        3928.0
-      SE             Sergipe     Baixa        5       1.717        1002.0
-      SP           São Paulo     Baixa       74       1.708       57267.0
-      PR              Paraná     Baixa       30       1.703       24590.0
-      RO            Rondônia     Baixa       13       1.680        2034.0
-      PI               Piauí     Baixa       13       1.668        4033.0
-      AL             Alagoas     Baixa        6       1.660        1930.0
-      TO           Tocantins     Baixa        7       1.646        2224.0
-      CE               Ceará     Baixa       12       1.644        2422.0
-      BA               Bahia     Baixa       32       1.633        6379.0
-      MS  Mato Grosso do Sul     Baixa        4       1.627        3602.0
-      AM            Amazonas     Baixa       11       1.602        9902.0
-      RJ      Rio de Janeiro     Baixa       17       1.581       10358.0
-      PA                Pará     Baixa       14       1.577        3502.0
-      AP               Amapá     Baixa        4       1.564         889.0
-      GO               Goiás     Baixa       29       1.563        6745.0
-      AC                Acre     Baixa        2       1.558         726.0
-      PE          Pernambuco     Baixa       37       1.549       10263.0
-      MT         Mato Grosso     Baixa       25       1.367        5466.0
-      RR             Roraima     Baixa        5       1.346        1528.0
+UF                  Município Categoria  Qtd IES  Nota Média  Total Alunos
+SP        São José dos Campos Excelente        1       4.942          63.0
+ES                    Vitória Excelente        1       4.620          55.0
+RJ             Rio de Janeiro Excelente        2       4.465         172.0
+SP      São José do Rio Preto Excelente        1       4.459         150.0
+SP                   Campinas Excelente        1       4.372        1717.0
+SP                  São Paulo Excelente        3       4.362         808.0
+SP                   Sorocaba Excelente        1       4.308         403.0
+MG             Belo Horizonte Excelente        2       4.289        5310.0
+SP      São Bernardo do Campo Excelente        1       4.278         789.0
+CE                  Fortaleza Excelente        1       4.247         626.0
+RS               Porto Alegre Excelente        2       4.230        3956.0
+SP                     Osasco Excelente        1       4.216         452.0
+SP                Santo André Excelente        1       4.158         856.0
+PR                   Curitiba Excelente        2       4.151        4422.0
+MG                     Viçosa Excelente        1       4.116        1145.0
+SE                    Aracaju Excelente        1       4.088         215.0
+BA                   Salvador Excelente        1       4.000        3144.0
+SP                    Limeira       Boa        1       3.970         645.0
+SP                      Bauru       Boa        1       3.959         613.0
+SP            Mogi das Cruzes       Boa        1       3.940         245.0
+PE                    Caruaru       Boa        1       3.937         186.0
+SC              Florianópolis       Boa        3       3.897        3869.0
+SP      São José do Rio Preto       Boa        1       3.895         114.0
+RJ                    Niterói       Boa        1       3.889        4554.0
+SP                 São Carlos       Boa        1       3.857        1153.0
+SP                    Jundiaí       Boa        1       3.844         207.0
+ES                    Vitória       Boa        2       3.835        2451.0
+SP                     Franca       Boa        1       3.791         551.0
+SP                   Botucatu       Boa        1       3.781         494.0
+SP         São Caetano do Sul       Boa        1       3.766         499.0
+ES               Nova Venécia       Boa        1       3.765         146.0
+SP                  Guarulhos       Boa        1       3.756         420.0
+BA     Santo Antônio de Jesus       Boa        1       3.743          95.0
+RJ      Campos dos Goytacazes       Boa        1       3.694         260.0
+MA                     Balsas       Boa        1       3.679          98.0
+PR              Foz do Iguaçu       Boa        1       3.671         171.0
+SP                      Jales       Boa        1       3.668          68.0
+SC                  Joinville       Boa        2       3.655         396.0
+PR                   Londrina       Boa        1       3.650        2437.0
+RJ             Rio de Janeiro       Boa        9       3.621       13047.0
+ES    Cachoeiro de Itapemirim       Boa        1       3.619         143.0
+SP                     Santos       Boa        2       3.614         678.0
+SP                    Marília       Boa        1       3.609         107.0
+SC                  Araranguá       Boa        1       3.601         160.0
+SC                Curitibanos       Boa        1       3.570         159.0
+MG       Governador Valadares       Boa        2       3.559         298.0
+DF                   Brasília       Boa        2       3.522        4294.0
+SC        São Miguel do Oeste       Boa        1       3.522          63.0
+RJ                      Macaé       Boa        2       3.520         704.0
+SP                 Araraquara       Boa        1       3.514        1123.0
+SP                  Rio Claro       Boa        1       3.506         129.0
+MG                    Uberaba       Boa        1       3.500        1120.0
+RJ                Nova Iguaçu       Boa        1       3.486         341.0
+PE                  Garanhuns       Boa        1       3.480         270.0
+MG                    Itajubá       Boa        1       3.478         374.0
+PB                      Areia       Boa        1       3.468         128.0
+SP                   Campinas       Boa        2       3.463         466.0
+ES                 Vila Velha       Boa        2       3.462        1554.0
+RS               Porto Alegre       Boa        4       3.454        3056.0
+RJ                    Valença       Boa        1       3.438         559.0
+PR                    Maringá       Boa        1       3.436        1680.0
+RJ                 Petrópolis       Boa        1       3.435         144.0
+SP             Ribeirão Preto       Boa        2       3.429        1655.0
+MG               Juiz de Fora       Boa        4       3.428        2548.0
+PR                   Cascavel       Boa        2       3.422         728.0
+RN                      Natal       Boa        3       3.422        3801.0
+MG              Rio Paranaíba       Boa        1       3.418         112.0
+RJ                  Cabo Frio       Boa        2       3.415         144.0
+RJ                 Seropédica       Boa        1       3.414        1848.0
+MG                 Uberlândia       Boa        1       3.412        3121.0
+RS                Santa Maria       Boa        2       3.411        2258.0
+MG                  Florestal       Boa        1       3.409         106.0
+BA                   Juazeiro       Boa        1       3.400         253.0
+SP                    Diadema       Boa        1       3.398         440.0
+RS               São Leopoldo       Boa        1       3.398        1749.0
+PB                João Pessoa       Boa        1       3.378        2565.0
+PR                     Toledo       Boa        2       3.377         237.0
+MG      Santa Rita do Sapucaí       Boa        1       3.377          62.0
+SC                      Lages       Boa        1       3.375         157.0
+SC                    Chapecó       Boa        1       3.365         515.0
+MG                 Ouro Preto       Boa        1       3.365         771.0
+CE                  Fortaleza       Boa        5       3.342        5254.0
+SP                  São Paulo       Boa       12       3.340        9664.0
+MG             Belo Horizonte       Boa        7       3.330        5304.0
+MG           São João del Rei       Boa        2       3.326        1692.0
+CE          Juazeiro do Norte       Boa        2       3.319        1056.0
+PE                     Recife       Boa        4       3.318        5505.0
+ES                   Colatina       Boa        2       3.317         595.0
+GO                    Goiânia       Boa        4       3.308        3200.0
+ES                    Castelo       Boa        1       3.307          48.0
+RS                  São Borja       Boa        1       3.289         121.0
+BA                  Barreiras       Boa        1       3.280         467.0
+SC                   Araquari       Boa        1       3.274         108.0
+MG                Sete Lagoas       Boa        1       3.272         171.0
+MS               Campo Grande       Boa        1       3.272        1545.0
+BA                   Salvador       Boa        4       3.272        1853.0
+PE    Cabo de Santo Agostinho       Boa        1       3.270          52.0
+RS                    Pelotas       Boa        2       3.267        1769.0
+MG                Divinópolis       Boa        2       3.266         532.0
+ES                  Cariacica       Boa        2       3.263         126.0
+SP                Santo André       Boa        1       3.262         299.0
+PR                   Curitiba       Boa        3       3.261        3446.0
+PA                      Belém       Boa        4       3.245        3614.0
+SP      São Bernardo do Campo       Boa        2       3.238        1006.0
+MG                    Mariana       Boa        1       3.236         496.0
+RS           Cachoeira do Sul       Boa        1       3.221         110.0
+MG                    Alfenas       Boa        1       3.218         678.0
+MG                     Lavras       Boa        3       3.209        2854.0
+PE                  Petrolina       Boa        1       3.208         503.0
+ES                 São Mateus       Boa        1       3.206          91.0
+PR               Bandeirantes       Boa        1       3.205         176.0
+RS                      Marau       Boa        1       3.205          23.0
+TO                     Palmas       Boa        1       3.202         177.0
+PR                  Apucarana       Boa        1       3.191          69.0
+RN                      Caicó       Boa        1       3.189         174.0
+PR                 Guarapuava       Boa        1       3.175         676.0
+TO      Miracema do Tocantins       Boa        1       3.162          73.0
+MA                   São Luís       Boa        2       3.148        2348.0
+RJ                  Nilópolis       Boa        1       3.142         125.0
+MG            Poços de Caldas       Boa        1       3.142         127.0
+BA       Vitória da Conquista       Boa        1       3.135          85.0
+MG             Patos de Minas       Boa        1       3.134         991.0
+PR                Pato Branco       Boa        1       3.134         172.0
+SP        Presidente Prudente       Boa        1       3.130        1219.0
+RS              Restinga Sêca       Boa        1       3.129          59.0
+RS                       Ijuí       Boa        1       3.128         550.0
+BA                    Itabuna       Boa        1       3.121          19.0
+PI                   Teresina       Boa        2       3.121        1928.0
+SE              São Cristóvão       Boa        1       3.120        2146.0
+MG              Pará de Minas       Boa        1       3.106         225.0
+RS                 Uruguaiana       Boa        1       3.094         198.0
+RS            Bento Gonçalves       Boa        1       3.091          98.0
+MG                     Viçosa       Boa        1       3.090         345.0
+BA                     Jequié       Boa        1       3.089         287.0
+ES                      Serra       Boa        1       3.086         186.0
+MG             João Monlevade       Boa        1       3.085         240.0
+BA           Feira de Santana       Boa        1       3.084        1318.0
+BA                     Ilhéus       Boa        1       3.073         855.0
+RS              Caxias do Sul       Boa        1       3.069          16.0
+MG              Montes Claros       Boa        2       3.069         734.0
+SC                    Ibirama       Boa        1       3.068          62.0
+PR               Ponta Grossa       Boa        1       3.066        1221.0
+SP              Guaratinguetá       Boa        1       3.066         241.0
+SP                    Barueri       Boa        1       3.055         148.0
+RS                      Feliz       Boa        1       3.038          36.0
+RS              Novo Hamburgo       Boa        1       3.036          31.0
+ES                   Linhares       Boa        1       3.035         291.0
+AM                     Manaus       Boa        1       3.030         892.0
+RS                 Rio Grande       Boa        1       3.027         783.0
+MG               Nova Serrana       Boa        1       3.027          39.0
+MG                 Muzambinho       Boa        1       3.023         190.0
+MT                     Cuiabá       Boa        1       3.022        1186.0
+GO                   Trindade       Boa        1       3.020         101.0
+SC                   Criciúma       Boa        1       3.005         167.0
+PR                      Irati   Regular        1       2.995         121.0
+MG                      Betim   Regular        1       2.993         253.0
+MG                        Ubá   Regular        1       2.989         272.0
+PB                      Patos   Regular        1       2.984         308.0
+RS                    Lajeado   Regular        1       2.981         962.0
+MG                     Lavras   Regular        1       2.971          16.0
+RS       Palmeira das Missões   Regular        1       2.964          75.0
+SC                   Blumenau   Regular        1       2.960         790.0
+RJ                 Petrópolis   Regular        1       2.952         556.0
+ES                     Alegre   Regular        1       2.946         345.0
+MA                    Bacabal   Regular        1       2.943          75.0
+RN             Pau dos Ferros   Regular        1       2.937          59.0
+BA             Cruz das Almas   Regular        2       2.937         551.0
+SC                     Itajaí   Regular        1       2.922        1477.0
+MA                     Caxias   Regular        1       2.910          22.0
+RS                  Garibaldi   Regular        1       2.907          51.0
+MG                São Gotardo   Regular        1       2.906          32.0
+MG                 Diamantina   Regular        1       2.888         838.0
+RS                   Alegrete   Regular        1       2.867          87.0
+PR                   Cascavel   Regular        1       2.863         116.0
+GO                      Jataí   Regular        1       2.858         629.0
+MG                    Formiga   Regular        1       2.857          99.0
+SP        Presidente Prudente   Regular        2       2.851         518.0
+SP               Praia Grande   Regular        1       2.845         251.0
+ES    Venda Nova do Imigrante   Regular        1       2.839          50.0
+RS                    Taquara   Regular        1       2.837         257.0
+PR                Jacarezinho   Regular        1       2.836         323.0
+PB                      Sousa   Regular        1       2.827         360.0
+MG                   Oliveira   Regular        1       2.827          67.0
+RS              Capão do Leão   Regular        1       2.811         488.0
+MG         Coronel Fabriciano   Regular        1       2.811         514.0
+MG                 Ouro Preto   Regular        1       2.809          96.0
+SC                    Joaçaba   Regular        1       2.804         506.0
+RS     Sant'Ana do Livramento   Regular        1       2.803         257.0
+SP                Hortolândia   Regular        1       2.802         168.0
+MG                  Barbacena   Regular        2       2.796         769.0
+RS              Novo Hamburgo   Regular        2       2.789        1694.0
+MG                   Manhuaçu   Regular        1       2.777         194.0
+SP          Engenheiro Coelho   Regular        1       2.772         574.0
+SP                Sertãozinho   Regular        2       2.772         118.0
+SC                    Brusque   Regular        1       2.771         234.0
+SP                    Jundiaí   Regular        1       2.771         776.0
+ES      Santa Maria de Jetibá   Regular        1       2.770          32.0
+SC                    Caçador   Regular        1       2.767         338.0
+SC                 Rio do Sul   Regular        2       2.762         309.0
+MG           São João del Rei   Regular        1       2.755         659.0
+MG                    Uberaba   Regular        3       2.752        3199.0
+SP                    Limeira   Regular        3       2.751         495.0
+RN                    Mossoró   Regular        3       2.748        1391.0
+RS          Santa Cruz do Sul   Regular        2       2.744        1135.0
+SP                 Indaiatuba   Regular        2       2.742         818.0
+RN                   Caraúbas   Regular        1       2.732          77.0
+MG       Governador Valadares   Regular        1       2.731         429.0
+PI                   Parnaíba   Regular        2       2.721         806.0
+BA       Vitória da Conquista   Regular        2       2.719        1292.0
+RN                      Caicó   Regular        1       2.717          62.0
+SC              Florianópolis   Regular        1       2.710         117.0
+PR              Dois Vizinhos   Regular        2       2.708         438.0
+MG                   Varginha   Regular        2       2.706         688.0
+PR                  Apucarana   Regular        1       2.700         202.0
+PR                 Medianeira   Regular        1       2.698         150.0
+RO             Rolim de Moura   Regular        1       2.692          96.0
+PR           União da Vitória   Regular        3       2.681         420.0
+SP                      Cotia   Regular        2       2.677          69.0
+MG                 Ponte Nova   Regular        1       2.676         147.0
+MG                    Itajubá   Regular        1       2.672         636.0
+MG                     Sabará   Regular        1       2.671          88.0
+SP                      Avaré   Regular        3       2.670         604.0
+SC                  Joinville   Regular        6       2.663        1630.0
+GO                    Catalão   Regular        1       2.662         482.0
+RS       Frederico Westphalen   Regular        1       2.658          87.0
+SP            Taboão da Serra   Regular        1       2.658         202.0
+RS                    Erechim   Regular        2       2.655         431.0
+PR                Pato Branco   Regular        1       2.646         444.0
+MS               Campo Grande   Regular        1       2.643         958.0
+RN                    Macaíba   Regular        1       2.642         121.0
+MG                 Brumadinho   Regular        1       2.642         152.0
+PR              Foz do Iguaçu   Regular        3       2.638        1616.0
+PB                 Cajazeiras   Regular        2       2.637         674.0
+TO                  Araguaína   Regular        1       2.626         332.0
+PR                   Londrina   Regular        3       2.624        1117.0
+SP                  Americana   Regular        3       2.621        1341.0
+SC                    Chapecó   Regular        3       2.620        1086.0
+PR                    Ivatuba   Regular        1       2.620          96.0
+PA                     Marabá   Regular        1       2.618         321.0
+SC                   Criciúma   Regular        3       2.615        1788.0
+MG               Juiz de Fora   Regular        3       2.611         837.0
+PR       São José dos Pinhais   Regular        1       2.608         175.0
+SP                  Araçatuba   Regular        3       2.607        1153.0
+SP                       Lins   Regular        2       2.606         222.0
+SP                   Ourinhos   Regular        1       2.605         474.0
+BA                  Cachoeira   Regular        2       2.605         681.0
+MT               Rondonópolis   Regular        1       2.602         506.0
+RS              Caxias do Sul   Regular        3       2.602        2860.0
+SP                     Lorena   Regular        2       2.602         503.0
+ES    Cachoeiro de Itapemirim   Regular        1       2.600         434.0
+MG              Santos Dumont   Regular        1       2.598          35.0
+SP                        Jaú   Regular        1       2.598         223.0
+ES                    Vitória   Regular        5       2.595        1199.0
+SP                 Jaguariúna   Regular        1       2.591         921.0
+ES                      Serra   Regular        2       2.589         363.0
+MG                Sete Lagoas   Regular        5       2.587         827.0
+CE                    Quixadá   Regular        2       2.587         638.0
+SP                      Bauru   Regular        2       2.585        1304.0
+RS           Cachoeira do Sul   Regular        1       2.581         104.0
+PB                João Pessoa   Regular        3       2.578        2651.0
+SP                   Bertioga   Regular        1       2.573          74.0
+BA                  Eunápolis   Regular        1       2.568         135.0
+MG                  Rio Pomba   Regular        1       2.562         142.0
+RS                   Gravataí   Regular        1       2.561         248.0
+MG                    Itabira   Regular        2       2.559         492.0
+SP   Espírito Santo do Pinhal   Regular        1       2.557         212.0
+PR          Cornélio Procópio   Regular        2       2.555         746.0
+PR                     Toledo   Regular        1       2.554          81.0
+RJ                Teresópolis   Regular        1       2.552         759.0
+SC             Jaraguá do Sul   Regular        2       2.552         552.0
+SP                     Suzano   Regular        2       2.551         281.0
+GO                   Anápolis   Regular        5       2.550        1998.0
+PR      Campina Grande do Sul   Regular        1       2.534          42.0
+RS                    Pelotas   Regular        2       2.532         704.0
+MG               Pouso Alegre   Regular        2       2.528         957.0
+SP                    Taubaté   Regular        2       2.528        1574.0
+RJ                    Resende   Regular        3       2.526         293.0
+BA           Feira de Santana   Regular        5       2.525        1863.0
+MG                     Passos   Regular        1       2.524         293.0
+MT            Barra do Garças   Regular        2       2.519         289.0
+RS                 Santa Rosa   Regular        1       2.518         209.0
+RS            Bento Gonçalves   Regular        2       2.517         289.0
+MS                   Dourados   Regular        3       2.515        2274.0
+MT              Várzea Grande   Regular        2       2.514         858.0
+AM                     Manaus   Regular        3       2.514        2933.0
+SP                   Ibitinga   Regular        1       2.513          91.0
+SP                    Itatiba   Regular        1       2.512         132.0
+ES                   Colatina   Regular        1       2.512          98.0
+MG                 Uberlândia   Regular        4       2.510         810.0
+PR                   Umuarama   Regular        1       2.507          52.0
+SC                    Tubarão   Regular        1       2.506         808.0
+MG                    Iturama   Regular        1       2.505         139.0
+RS               Porto Alegre   Regular        9       2.504        2860.0
+AL                     Maceió   Regular        5       2.502        5617.0
+AL                  Arapiraca   Regular        2       2.502         598.0
+MG                     Itaúna   Regular        1       2.486         497.0
+MS                 Ponta Porã   Regular        1       2.486          55.0
+PR                  Paranavaí   Regular        1       2.479         324.0
+RS               Santo Ângelo   Regular        1       2.478          66.0
+SP                     Araras   Regular        1       2.477        1865.0
+PE             Nazaré da Mata   Regular        1       2.469         268.0
+PR               Campo Mourão   Regular        2       2.468         294.0
+RS                Passo Fundo   Regular        4       2.467        2312.0
+SC                    Videira   Regular        1       2.462          42.0
+DF                   Brasília   Regular       17       2.459       12077.0
+MG              Inconfidentes   Regular        1       2.458         162.0
+GO                    Jussara   Regular        1       2.456          65.0
+PE                     Recife   Regular       12       2.455       13737.0
+SP         São Caetano do Sul   Regular        1       2.454         779.0
+SP                     Mococa   Regular        1       2.453         154.0
+SP                   Sorocaba   Regular        4       2.452        2771.0
+RS                  Cruz Alta   Regular        1       2.451         467.0
+SP        São José dos Campos   Regular        2       2.448         791.0
+SP                     Amparo   Regular        1       2.448          97.0
+CE                  Fortaleza   Regular       11       2.445        9410.0
+CE                     Sobral   Regular        3       2.444        1752.0
+SC                    Palhoça   Regular        1       2.442         605.0
+PE                  Garanhuns   Regular        1       2.440         129.0
+SP                   Botucatu   Regular        3       2.440         448.0
+MG                   Ipatinga   Regular        2       2.439         391.0
+RN                    Angicos   Regular        1       2.438          93.0
+MG                       Unaí   Regular        1       2.437         164.0
+PR                   Curitiba   Regular       14       2.436       39021.0
+AM                    Humaitá   Regular        1       2.435          56.0
+RJ            Duque de Caxias   Regular        1       2.433        2115.0
+RS                     Canoas   Regular        3       2.431        2739.0
+PI                      Picos   Regular        2       2.430         441.0
+MG                     Muriaé   Regular        2       2.427         618.0
+RJ             Rio de Janeiro   Regular       13       2.426       12089.0
+PR          Francisco Beltrão   Regular        1       2.426          41.0
+PR       São Miguel do Iguaçu   Regular        1       2.424         157.0
+PI                  Bom Jesus   Regular        1       2.422         163.0
+ES               Santa Teresa   Regular        1       2.421          83.0
+GO       Aparecida de Goiânia   Regular        3       2.420        1122.0
+MG                     Matipó   Regular        1       2.419         304.0
+SP             Ribeirão Preto   Regular        2       2.418        8866.0
+BA           Lauro de Freitas   Regular        1       2.416          74.0
+SP                  São Paulo   Regular       18       2.415       21063.0
+RS               Três de Maio   Regular        1       2.413         191.0
+PE                  Petrolina   Regular        3       2.411        1289.0
+BA                 Itapetinga   Regular        1       2.410          71.0
+SP                     Franca   Regular        2       2.405        7488.0
+RJ                    Niterói   Regular        2       2.399         811.0
+SP                    Marília   Regular        3       2.397        2189.0
+SP                        Itu   Regular        3       2.396        1160.0
+MG                   Paracatu   Regular        1       2.389         259.0
+ES                 Vila Velha   Regular        3       2.385        1145.0
+TO                     Palmas   Regular        6       2.379        2520.0
+SP      São Bernardo do Campo   Regular        2       2.377        1390.0
+RO                       Jaru   Regular        1       2.377         111.0
+PB                      Cuité   Regular        1       2.375         173.0
+MG                      Araxá   Regular        2       2.374         575.0
+SP                Votuporanga   Regular        1       2.374         536.0
+MG               São Lourenço   Regular        1       2.373         204.0
+BA                      Irecê   Regular        1       2.372         155.0
+RN                      Natal   Regular        3       2.369        2374.0
+RJ                  Vassouras   Regular        1       2.369         515.0
+PB             Campina Grande   Regular        6       2.369        4916.0
+SP      São João da Boa Vista   Regular        2       2.367        1216.0
+CE                    Caucaia   Regular        1       2.363         309.0
+BA                   Amargosa   Regular        1       2.361         213.0
+MG                     Bambuí   Regular        1       2.361         259.0
+RO                Porto Velho   Regular        6       2.358        2528.0
+MG                 Cataguases   Regular        2       2.356         181.0
+MG              Montes Claros   Regular        3       2.356        1918.0
+BA                   Camaçari   Regular        1       2.355         118.0
+CE                    Aracati   Regular        1       2.352          88.0
+SP                     Santos   Regular        6       2.351        4731.0
+BA               Paulo Afonso   Regular        1       2.350         376.0
+PI                   Teresina   Regular        6       2.350        3128.0
+ES                    Aracruz   Regular        1       2.348         166.0
+PB                   Cabedelo   Regular        1       2.347         816.0
+PE                     Olinda   Regular        3       2.345         630.0
+SP                  Bebedouro   Regular        2       2.343         673.0
+CE          Juazeiro do Norte   Regular        3       2.340         624.0
+PR                   Barracão   Regular        1       2.339          22.0
+GO                  Rio Verde   Regular        2       2.334         731.0
+PR               Ponta Grossa   Regular        4       2.331        1218.0
+PA                      Belém   Regular        7       2.330        3439.0
+RJ      Campos dos Goytacazes   Regular        4       2.328         942.0
+MA                 Imperatriz   Regular        3       2.326         830.0
+CE                    Tianguá   Regular        1       2.324         393.0
+GO               Caldas Novas   Regular        1       2.324          55.0
+RS                     Osório   Regular        1       2.323         678.0
+SP                   Campinas   Regular        4       2.321        4356.0
+AC                 Rio Branco   Regular        2       2.320        1186.0
+PE                  Pesqueira   Regular        1       2.319         110.0
+SP                 Mogi Mirim   Regular        1       2.317         174.0
+SE                    Lagarto   Regular        1       2.316          61.0
+BA                     Tucano   Regular        1       2.315         174.0
+SP                  Rio Claro   Regular        1       2.314         103.0
+AP                     Macapá   Regular        6       2.314        2066.0
+SP            Pindamonhangaba   Regular        1       2.312         267.0
+RJ              Volta Redonda   Regular        3       2.310        1355.0
+SP                 Araraquara   Regular        1       2.299        1109.0
+RS                Cerro Largo   Regular        1       2.299          44.0
+SE                    Aracaju   Regular        4       2.298        2850.0
+SP                   Batatais   Regular        1       2.296        4798.0
+SP                   Barretos   Regular        2       2.296         646.0
+SP                 Piracicaba   Regular        3       2.295         750.0
+SP                    Atibaia   Regular        1       2.293         743.0
+BA                   Salvador   Regular        8       2.287        6319.0
+MG                  Ituiutaba   Regular        2       2.285         250.0
+MG             Belo Horizonte   Regular       13       2.284        6013.0
+SP          Bragança Paulista   Regular        2       2.283        1826.0
+GO                    Goiânia   Regular       11       2.283        6054.0
+SP      São José do Rio Preto   Regular        2       2.282        1779.0
+SP            Mogi das Cruzes   Regular        1       2.281        2011.0
+MG                   Januária   Regular        2       2.280         224.0
+PR                   Rolândia   Regular        1       2.278          47.0
+RS                Santa Maria   Regular        3       2.278         270.0
+SP                 Mogi Guaçu   Regular        2       2.277         308.0
+SP                Santo André   Regular        2       2.277         412.0
+MG              Teófilo Otoni   Regular        1       2.276         278.0
+SP                   Registro   Regular        1       2.275         478.0
+MG                    Alfenas   Regular        2       2.273         771.0
+SC                    Orleans   Regular        1       2.273         322.0
+RS                   Jaguarão   Regular        1       2.271          71.0
+MG                 Coromandel   Regular        1       2.269          72.0
+SP                 São Carlos   Regular        1       2.266         634.0
+SP                      Tatuí   Regular        1       2.266         132.0
+SE    Nossa Senhora da Glória   Regular        1       2.266          78.0
+GO                     Uruaçu   Regular        1       2.260         127.0
+PR                    Maringá   Regular        4       2.260       26064.0
+MA                   São Luís   Regular        6       2.258        3651.0
+PI                   Piripiri   Regular        1       2.255         356.0
+MT         Lucas do Rio Verde   Regular        1       2.254         209.0
+SP                  Guarulhos   Regular        1       2.254         458.0
+SP                   Caçapava   Regular        1       2.254          95.0
+CE                  Horizonte   Regular        1       2.252          49.0
+MG                   Contagem   Regular        3       2.251         197.0
+RJ                      Macaé   Regular        1       2.247          96.0
+ES                  Guarapari   Regular        1       2.247          71.0
+SP              Fernandópolis   Regular        1       2.244         357.0
+RS                    Sarandi   Regular        1       2.240         104.0
+RR                  Boa Vista   Regular        2       2.240        1041.0
+SP                Jaboticabal   Regular        1       2.240         376.0
+PE                    Caruaru   Regular        3       2.235        3614.0
+SP                     Agudos   Regular        1       2.233          65.0
+PA                   Santarém   Regular        3       2.231        1696.0
+SP                    Peruíbe   Regular        1       2.231         161.0
+SC         Balneário Camboriú   Regular        1       2.229         923.0
+BA                   Juazeiro   Regular        1       2.228         204.0
+RJ    Bom Jesus do Itabapoana   Regular        1       2.224         112.0
+PR    Marechal Cândido Rondon   Regular        1       2.220          98.0
+MT                      Sinop   Regular        2       2.214         184.0
+GO                     Urutaí   Regular        1       2.213          88.0
+BA                 Alagoinhas   Regular        2       2.211         328.0
+RJ                   Araruama   Regular        1       2.210         118.0
+MG                    Salinas   Regular        1       2.209         181.0
+ES                 São Mateus   Regular        1       2.208         210.0
+SC                      Lages   Regular        1       2.208         653.0
+SP               Itapetininga   Regular        2       2.200         329.0
+SP                      Garça   Regular        1       2.199         153.0
+BA                     Ilhéus   Regular        2       2.194         544.0
+PR                 Guarapuava   Regular        1       2.188         427.0
+SP                      Salto   Regular        1       2.185         503.0
+GO                      Ceres   Regular        1       2.185         141.0
+SP            Monte Aprazível   Regular        1       2.178         136.0
+RO                     Cacoal   Regular        1       2.176         387.0
+SE   Canindé de São Francisco   Regular        1       2.173          64.0
+RS                       Bagé   Regular        2       2.170         831.0
+SP                    Itapeva   Regular        1       2.170         525.0
+SC                 Navegantes   Regular        1       2.165          81.0
+GO                   Luziânia   Regular        1       2.161         490.0
+MG                  Caratinga   Regular        2       2.159         676.0
+SP                 Adamantina   Regular        1       2.158         478.0
+MG                 Vespasiano   Regular        1       2.155         210.0
+SC                      Mafra   Regular        1       2.150         183.0
+PA             Rondon do Pará   Regular        1       2.148         126.0
+SP                Porto Feliz   Regular        1       2.145          22.0
+MS                Três Lagoas   Regular        1       2.144         313.0
+SP                Nova Odessa   Regular        1       2.144          35.0
+SP                  Penápolis   Regular        1       2.143         195.0
+RO                    Vilhena   Regular        3       2.133         267.0
+MT                     Cuiabá   Regular        1       2.132          78.0
+CE                      Crato   Regular        1       2.127        1267.0
+SP                    Socorro   Regular        1       2.123          46.0
+SP                São Vicente   Regular        1       2.116          52.0
+PR                  Paranaguá   Regular        1       2.103          55.0
+SC                Pinhalzinho   Regular        1       2.102          22.0
+MG              Campos Gerais   Regular        1       2.100         138.0
+PR                     Ibaiti   Regular        1       2.093          77.0
+BA        Teixeira de Freitas   Regular        1       2.088         196.0
+RJ                  Três Rios   Regular        1       2.085         106.0
+RS         São Vicente do Sul   Regular        1       2.080          60.0
+TO                 Araguatins   Regular        1       2.075         159.0
+MG                        Luz   Regular        1       2.071         105.0
+PE                   Timbaúba   Regular        1       2.071          41.0
+PA                 Ananindeua   Regular        1       2.069         765.0
+RJ                  Itaperuna   Regular        1       2.062         504.0
+SP                  Ituverava   Regular        2       2.059         366.0
+CE                    Crateús   Regular        1       2.052          50.0
+SP            Santa Fé do Sul   Regular        1       2.051         388.0
+GO                  Goianésia   Regular        1       2.048         331.0
+CE                   Redenção   Regular        1       2.045         355.0
+BA                   Jacobina   Regular        1       2.041         175.0
+SP                    Guarujá   Regular        1       2.041         110.0
+PR                    Pinhais   Regular        1       2.039         114.0
+SP                  Catanduva   Regular        1       2.032         123.0
+SC                   São José   Regular        1       2.029         145.0
+BA     Santo Antônio de Jesus   Regular        1       2.028         280.0
+PR                    Pitanga   Regular        1       2.024         147.0
+AM                      Coari   Regular        1       2.021          82.0
+SP                       Leme   Regular        1       2.020         148.0
+SP              Caraguatatuba   Regular        1       2.020         554.0
+MG              Monte Carmelo   Regular        1       2.019         307.0
+MG                    Machado   Regular        1       2.017         156.0
+MG                    Guaxupé   Regular        1       2.014         298.0
+MG                   Pirapora   Regular        1       2.004         136.0
+SP                 Descalvado     Baixa        1       2.000          92.0
+MG                   Ipatinga     Baixa        1       2.000         567.0
+MG                 Campo Belo     Baixa        1       1.999          84.0
+MT      Campo Novo do Parecis     Baixa        1       1.998          98.0
+PR                Jaguariaíva     Baixa        1       1.997          42.0
+PA                   Altamira     Baixa        1       1.996         296.0
+SP                       Mauá     Baixa        1       1.996         210.0
+PR                   Umuarama     Baixa        1       1.994         531.0
+PR                  Paranavaí     Baixa        1       1.989         495.0
+SP                Carapicuíba     Baixa        1       1.989         499.0
+SP                    Marília     Baixa        1       1.986         783.0
+GO                   Goiatuba     Baixa        1       1.983         445.0
+SP                 Piracicaba     Baixa        1       1.982         138.0
+SC         Balneário Camboriú     Baixa        1       1.971         158.0
+PB                      Patos     Baixa        1       1.971         802.0
+BA                  Itamaraju     Baixa        1       1.971         105.0
+CE          Juazeiro do Norte     Baixa        1       1.968         230.0
+SC                      Lages     Baixa        1       1.966         387.0
+MG                Divinópolis     Baixa        1       1.966         289.0
+MG       Conselheiro Lafaiete     Baixa        1       1.964         262.0
+SP               Itapetininga     Baixa        1       1.962         186.0
+SP       São Joaquim da Barra     Baixa        1       1.961          38.0
+PR                      Cambé     Baixa        1       1.957          63.0
+MG                  Ouro Fino     Baixa        1       1.956          91.0
+SP                   Ourinhos     Baixa        1       1.956         215.0
+PA                    Tucuruí     Baixa        1       1.955         223.0
+BA                Paripiranga     Baixa        1       1.949         461.0
+MA                 Açailândia     Baixa        1       1.949          90.0
+GO                    Inhumas     Baixa        1       1.947         231.0
+MG                  Carangola     Baixa        1       1.942          98.0
+MG              João Pinheiro     Baixa        1       1.942          44.0
+RN             Pau dos Ferros     Baixa        1       1.940         219.0
+SP        São José dos Campos     Baixa        1       1.934          69.0
+SP                   Cruzeiro     Baixa        1       1.933          93.0
+AL         Santana do Ipanema     Baixa        1       1.930         123.0
+MG              Teófilo Otoni     Baixa        1       1.924         804.0
+MS                 Ponta Porã     Baixa        1       1.919          70.0
+MG                     Viçosa     Baixa        1       1.916          64.0
+SP                       Lins     Baixa        1       1.913         230.0
+RS                    Camaquã     Baixa        1       1.913          14.0
+SP                São Vicente     Baixa        1       1.910         389.0
+CE                     Sobral     Baixa        1       1.910        1122.0
+PR                   Ivaiporã     Baixa        1       1.909         109.0
+CE                Brejo Santo     Baixa        1       1.907          55.0
+PI                   Floriano     Baixa        1       1.905         209.0
+GO                   Anápolis     Baixa        1       1.904         467.0
+PR                     Palmas     Baixa        1       1.902         392.0
+RJ             Barra do Piraí     Baixa        1       1.901          98.0
+MG               Bom Despacho     Baixa        1       1.897         806.0
+PA                   Santarém     Baixa        1       1.895         284.0
+MA             Paço do Lumiar     Baixa        1       1.893         431.0
+AM                Itacoatiara     Baixa        1       1.892          66.0
+SP      São José do Rio Pardo     Baixa        1       1.891          33.0
+SP        Santana de Parnaíba     Baixa        1       1.891          38.0
+SP               Barra Bonita     Baixa        1       1.889         177.0
+MG                    Formiga     Baixa        1       1.885         546.0
+SP                      Avaré     Baixa        1       1.880          93.0
+SC                  Concórdia     Baixa        1       1.880          32.0
+BA                    Itabuna     Baixa        1       1.879         471.0
+MA                      Timon     Baixa        2       1.877         156.0
+PB                João Pessoa     Baixa        2       1.875        1000.0
+RJ                Barra Mansa     Baixa        1       1.871         747.0
+BA               Capim Grosso     Baixa        1       1.870          24.0
+MT                    Jaciara     Baixa        1       1.869         102.0
+SP                    Itapira     Baixa        1       1.869         219.0
+SP                   Botucatu     Baixa        1       1.869         150.0
+MG                    Extrema     Baixa        1       1.868         242.0
+PE                  Petrolina     Baixa        2       1.867         345.0
+ES       São Gabriel da Palha     Baixa        1       1.864          37.0
+SP                Pederneiras     Baixa        1       1.864          62.0
+MG              Montes Claros     Baixa        3       1.863         894.0
+PR                  Guaratuba     Baixa        1       1.861          79.0
+ES                      Serra     Baixa        2       1.860         299.0
+PR        Assis Chateaubriand     Baixa        1       1.859          79.0
+PR                  Apucarana     Baixa        1       1.857         209.0
+PE                  Garanhuns     Baixa        2       1.857         634.0
+PE     Vitória de Santo Antão     Baixa        2       1.856        1084.0
+MG       Governador Valadares     Baixa        2       1.855         164.0
+MG                 Patrocínio     Baixa        1       1.854         299.0
+TO             Porto Nacional     Baixa        2       1.853         319.0
+PA                  Castanhal     Baixa        1       1.851         451.0
+MG             Patos de Minas     Baixa        1       1.844         148.0
+RS             Getúlio Vargas     Baixa        1       1.843         234.0
+SP       Campo Limpo Paulista     Baixa        1       1.841        1387.0
+ES                    Vitória     Baixa        1       1.840         192.0
+MG               Além Paraíba     Baixa        1       1.838          86.0
+PR                     Ampére     Baixa        1       1.837          76.0
+BA           Feira de Santana     Baixa        1       1.837          59.0
+SE                    Lagarto     Baixa        1       1.835         124.0
+BA                     Jequié     Baixa        2       1.834         446.0
+SP                   Campinas     Baixa        1       1.829         105.0
+RS                Horizontina     Baixa        1       1.829          91.0
+BA     São Francisco do Conde     Baixa        1       1.826          82.0
+CE                  Itapipoca     Baixa        1       1.825         117.0
+SP                  São Roque     Baixa        1       1.823         314.0
+RS               Porto Alegre     Baixa        2       1.816         315.0
+RJ                  Itaperuna     Baixa        1       1.815         551.0
+GO                   Trindade     Baixa        1       1.810         267.0
+MG                   Paracatu     Baixa        2       1.804         178.0
+SP                    Guarujá     Baixa        1       1.804         236.0
+AC            Cruzeiro do Sul     Baixa        1       1.800         138.0
+RO                  Ariquemes     Baixa        2       1.796         451.0
+SP               Praia Grande     Baixa        1       1.795         214.0
+RJ                Nova Iguaçu     Baixa        1       1.793        1122.0
+PE                   Paulista     Baixa        1       1.793         981.0
+MG                      Betim     Baixa        2       1.789         333.0
+MS               Campo Grande     Baixa        3       1.786        3533.0
+RN                      Natal     Baixa        3       1.783        1408.0
+MG                    Curvelo     Baixa        1       1.783          99.0
+SP                     Osasco     Baixa        2       1.782         392.0
+MG               Pouso Alegre     Baixa        1       1.782         400.0
+TO                  Araguaína     Baixa        3       1.777         786.0
+PR              Foz do Iguaçu     Baixa        1       1.776         308.0
+CE               Quixeramobim     Baixa        1       1.770         119.0
+SC                   Blumenau     Baixa        1       1.768         281.0
+SP      São José do Rio Preto     Baixa        2       1.767         312.0
+MG           Nova Porteirinha     Baixa        1       1.765         157.0
+SC                    Indaial     Baixa        1       1.763       31191.0
+DF                   Brasília     Baixa        6       1.761        5402.0
+SC                   São José     Baixa        2       1.761         357.0
+AL                     Maceió     Baixa        5       1.761        1741.0
+BA            Coronel João Sá     Baixa        1       1.760          43.0
+MG                    Machado     Baixa        2       1.758         202.0
+MG                 Uberlândia     Baixa        2       1.756         797.0
+BA           Lauro de Freitas     Baixa        1       1.755         132.0
+PB                  Guarabira     Baixa        1       1.753         109.0
+PR                 Guarapuava     Baixa        1       1.753         232.0
+RO             Rolim de Moura     Baixa        2       1.752         229.0
+RO              Pimenta Bueno     Baixa        1       1.750          74.0
+AC                 Rio Branco     Baixa        1       1.750         369.0
+MA                   São Luís     Baixa        7       1.748        1089.0
+GO                    Anicuns     Baixa        1       1.743          79.0
+RO                     Cacoal     Baixa        4       1.741         567.0
+MG               Juiz de Fora     Baixa        1       1.739         266.0
+PR                    Maringá     Baixa        4       1.733        3069.0
+SP                  São Paulo     Baixa       23       1.731       47860.0
+PE                     Recife     Baixa        6       1.730        1462.0
+SP                     Araras     Baixa        1       1.729        3791.0
+BA                   Juazeiro     Baixa        1       1.729         243.0
+SP               Pirassununga     Baixa        1       1.728          87.0
+RO                  Ji-Paraná     Baixa        3       1.725         593.0
+PA                 Ananindeua     Baixa        2       1.724         302.0
+SP                 São Manuel     Baixa        1       1.720         175.0
+AP                    Santana     Baixa        1       1.719          70.0
+PR                  Paranaguá     Baixa        1       1.718         134.0
+MG                       Unaí     Baixa        1       1.718         126.0
+SC                 Guaramirim     Baixa        1       1.714         102.0
+PI                   Teresina     Baixa        9       1.714        3171.0
+MG                   Manhuaçu     Baixa        1       1.710         117.0
+SP                   Paulínia     Baixa        1       1.705         434.0
+GO                  Itumbiara     Baixa        2       1.704         333.0
+SP                 Mogi Guaçu     Baixa        1       1.700          75.0
+PA                 Abaetetuba     Baixa        1       1.699         131.0
+PE          São José do Egito     Baixa        1       1.696         130.0
+TO                     Guaraí     Baixa        1       1.693         269.0
+CE                     Iguatu     Baixa        2       1.690         167.0
+MG             João Monlevade     Baixa        1       1.690         199.0
+SE                    Aracaju     Baixa        4       1.688         878.0
+PE      Afogados da Ingazeira     Baixa        1       1.685         167.0
+BA         Conceição do Coité     Baixa        1       1.685         125.0
+GO               Quirinópolis     Baixa        1       1.682         161.0
+MG                 Mato Verde     Baixa        1       1.681          56.0
+RJ               Belford Roxo     Baixa        1       1.679         284.0
+MG                    Uberaba     Baixa        3       1.678         324.0
+PR                   Curitiba     Baixa        6       1.676        1176.0
+PR          Cornélio Procópio     Baixa        1       1.674          59.0
+AP           Laranjal do Jari     Baixa        1       1.670          79.0
+GO                 Cristalina     Baixa        1       1.669          41.0
+RJ      Campos dos Goytacazes     Baixa        2       1.655         329.0
+SP                  Guarulhos     Baixa        5       1.654        3463.0
+BA                   Guanambi     Baixa        1       1.649         792.0
+SP            Pereira Barreto     Baixa        1       1.640         116.0
+RN                    Mossoró     Baixa        2       1.638         505.0
+BA                   Salvador     Baixa        9       1.638        1689.0
+TO                     Palmas     Baixa        2       1.633         374.0
+SP                      Cotia     Baixa        2       1.630         161.0
+SP                     Sumaré     Baixa        1       1.627         187.0
+AM                  Parintins     Baixa        1       1.627         172.0
+MT         Primavera do Leste     Baixa        2       1.627         216.0
+RN                        Açu     Baixa        1       1.627          78.0
+PE                     Olinda     Baixa        3       1.625         597.0
+GO                    Goiânia     Baixa        6       1.618        1483.0
+RS                  São Borja     Baixa        1       1.613          42.0
+SP               Taquaritinga     Baixa        1       1.610          58.0
+PR                    Colombo     Baixa        1       1.609          95.0
+MA                 Imperatriz     Baixa        3       1.608        1283.0
+MA                  Pedreiras     Baixa        1       1.607         192.0
+RS               Santo Ângelo     Baixa        1       1.606         218.0
+AM                     Manaus     Baixa       11       1.602        9902.0
+PE                    Ipojuca     Baixa        1       1.589         102.0
+PA                Paragominas     Baixa        1       1.588          29.0
+SP                Santo André     Baixa        2       1.586         335.0
+MG   São Sebastião do Paraíso     Baixa        2       1.585         140.0
+PE                     Goiana     Baixa        1       1.585         109.0
+GO                    Catalão     Baixa        1       1.577         492.0
+PR               Ponta Grossa     Baixa        1       1.573         120.0
+RJ                São Fidélis     Baixa        1       1.572         741.0
+PI                   Parnaíba     Baixa        2       1.565         482.0
+MT                      Sinop     Baixa        1       1.560          71.0
+CE                   Baturité     Baixa        1       1.552         259.0
+PE    Jaboatão dos Guararapes     Baixa        2       1.552        1766.0
+BA                  Barreiras     Baixa        2       1.547         407.0
+RJ             Rio de Janeiro     Baixa        9       1.545        4893.0
+PR                       Lapa     Baixa        1       1.541       13014.0
+AL        Palmeira dos Índios     Baixa        1       1.539         215.0
+PR                  Araucária     Baixa        1       1.538          59.0
+CE                  Fortaleza     Baixa        4       1.535         246.0
+BA        Teixeira de Freitas     Baixa        1       1.526          71.0
+SP                     Suzano     Baixa        1       1.525         359.0
+GO        Valparaíso de Goiás     Baixa        1       1.524         124.0
+PE              Serra Talhada     Baixa        3       1.518         574.0
+CE                    Tianguá     Baixa        1       1.514          47.0
+AP                     Macapá     Baixa        3       1.513         819.0
+MT                      Juína     Baixa        1       1.512          48.0
+CE                    Aracati     Baixa        1       1.507         115.0
+SP                       Tupã     Baixa        2       1.504         352.0
+RO                Porto Velho     Baixa        2       1.500         193.0
+BA                 Santa Inês     Baixa        1       1.496         127.0
+BA                    Valença     Baixa        1       1.495         296.0
+MT          Guarantã do Norte     Baixa        2       1.485         244.0
+MT                    Cáceres     Baixa        3       1.484         927.0
+MT         Pontal do Araguaia     Baixa        1       1.477          47.0
+SP                 Araraquara     Baixa        1       1.477          71.0
+TO       Paraíso do Tocantins     Baixa        1       1.471          84.0
+PR             Jandaia do Sul     Baixa        1       1.466          27.0
+PB                 Cajazeiras     Baixa        1       1.459         231.0
+GO                    Formosa     Baixa        1       1.458         290.0
+PE                  Salgueiro     Baixa        1       1.456         204.0
+MT              Alta Floresta     Baixa        1       1.456          50.0
+MG                    Lambari     Baixa        1       1.450          25.0
+PR                   Londrina     Baixa        2       1.447        5076.0
+MA             Barra do Corda     Baixa        1       1.447          89.0
+PA                      Belém     Baixa        4       1.446        1331.0
+BA         Riachão do Jacuípe     Baixa        1       1.443         117.0
+GO                   Mineiros     Baixa        2       1.435         671.0
+SP        Presidente Prudente     Baixa        1       1.429         180.0
+RJ                São Gonçalo     Baixa        2       1.424         671.0
+SP                      Jales     Baixa        1       1.422         106.0
+PE                   Limoeiro     Baixa        1       1.422         115.0
+MG                  Ituiutaba     Baixa        1       1.420          93.0
+RJ                    Niterói     Baixa        2       1.420         916.0
+MT           Tangará da Serra     Baixa        1       1.419         237.0
+MT               Rondonópolis     Baixa        2       1.417         427.0
+PA                Parauapebas     Baixa        1       1.412         222.0
+RJ                  Cabo Frio     Baixa        1       1.403         114.0
+GO                  Rio Verde     Baixa        3       1.400         526.0
+RJ             Angra dos Reis     Baixa        1       1.394         169.0
+PA                   Itaituba     Baixa        1       1.393         378.0
+SP                  Andradina     Baixa        2       1.379         133.0
+SP            Taboão da Serra     Baixa        1       1.377         582.0
+TO                     Gurupi     Baixa        1       1.374         782.0
+GO                      Jataí     Baixa        1       1.370         141.0
+GO                  Porangatu     Baixa        2       1.361         286.0
+MA                     Caxias     Baixa        2       1.359         718.0
+RR                  Boa Vista     Baixa        5       1.359        1505.0
+GO                      Iporá     Baixa        1       1.317         151.0
+BA                 Alagoinhas     Baixa        2       1.316         382.0
+PE     Belém do São Francisco     Baixa        2       1.315         408.0
+PE                Belo Jardim     Baixa        1       1.310         204.0
+BA           Senhor do Bonfim     Baixa        1       1.285         140.0
+PR                 Mandaguari     Baixa        1       1.280          69.0
+MT                     Cuiabá     Baixa        6       1.275        1729.0
+SP                    Itararé     Baixa        1       1.270          15.0
+PE                   Igarassu     Baixa        2       1.261         163.0
+PE                  Arcoverde     Baixa        2       1.257         512.0
+BA          Ribeira do Pombal     Baixa        1       1.252         111.0
+MT                 Araputanga     Baixa        1       1.251         113.0
+MG             Belo Horizonte     Baixa        1       1.237          74.0
+SP              Fernandópolis     Baixa        1       1.236         390.0
+GO                Piracanjuba     Baixa        1       1.233          96.0
+PI                Campo Maior     Baixa        1       1.232         171.0
+MS                 Aquidauana     Baixa        2       1.229         198.0
+RO        Ouro Preto do Oeste     Baixa        1       1.228          75.0
+GO   São Luís de Montes Belos     Baixa        1       1.209         461.0
+MT              Várzea Grande     Baixa        2       1.194         145.0
+BA     Santa Maria da Vitória     Baixa        1       1.173          84.0
+PE                     Escada     Baixa        1       1.156         280.0
+MS                Cassilândia     Baixa        1       1.151          69.0
+MT São José dos Quatro Marcos     Baixa        1       1.134         289.0
+MG                   Iguatama     Baixa        1       1.117          26.0
+AL                  Arapiraca     Baixa        1       1.095         142.0
+MT            Barra do Bugres     Baixa        1       1.061          93.0
+PA                   Redenção     Baixa        1       1.055         151.0
+PE                   Palmares     Baixa        1       1.047         147.0
+MT                      Juara     Baixa        1       0.987          41.0
+MT                    Colíder     Baixa        1       0.982          54.0
+PE                    Carpina     Baixa        1       0.825         253.0
+SP                     Rosana     Baixa        1       0.813          40.0
+AM                       Tefé     Baixa        1       0.807          15.0
 ================================================================================
 

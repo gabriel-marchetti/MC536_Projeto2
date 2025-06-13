@@ -377,6 +377,7 @@ def main():
     result2 = con.execute(query2).df()
     print(result2.to_string(index=False))
     salvar_resultado_txt(result2, "2. TOP CURSOS POR NOTA ENADE", arquivo_resultados)
+    salvar_resultado_txt(result2, "2. TOP CURSOS POR NOTA ENADE", arquivo_resultados)
     
     # CONSULTA 3: Análise Temporal do IDEB
     print("\n\n3. EVOLUÇÃO TEMPORAL DO IDEB POR ESTADO")
@@ -505,6 +506,7 @@ def main():
             CODIGO_IES,
             NOME_IES,
             SIGLA_UF,
+            NOME_MUNICIPIO,
             AVG(NOTA_ENADE_CONTINUA) as nota_media_ies,
             COUNT(DISTINCT NOME_CURSO) as cursos_oferecidos,
             SUM(TOTAL_INSCRITOS) as total_alunos,
@@ -516,33 +518,34 @@ def main():
             END as categoria_qualidade
         FROM Curso
         WHERE NOTA_ENADE_CONTINUA IS NOT NULL
-        GROUP BY CODIGO_IES, NOME_IES, SIGLA_UF
+        GROUP BY CODIGO_IES, NOME_IES, SIGLA_UF, NOME_MUNICIPIO
         HAVING COUNT(DISTINCT NOME_CURSO) >= 3  -- IES com pelo menos 3 cursos
     ),
-    distribuicao_por_estado AS (
+    distribuicao_por_municipio AS (
         SELECT 
             SIGLA_UF,
+            NOME_MUNICIPIO,
             categoria_qualidade,
             COUNT(*) as qtd_ies,
             AVG(nota_media_ies) as nota_media_categoria,
             SUM(total_alunos) as total_alunos_categoria
         FROM ies_qualidade
-        GROUP BY SIGLA_UF, categoria_qualidade
+        GROUP BY SIGLA_UF, NOME_MUNICIPIO, categoria_qualidade
     )
     SELECT 
-        d.SIGLA_UF,
-        (SELECT NOME_UF FROM Municipio m WHERE m.SIGLA_UF = d.SIGLA_UF LIMIT 1) as "Estado",
+        d.SIGLA_UF as "UF",
+        d.NOME_MUNICIPIO as "Município",
         d.categoria_qualidade as "Categoria",
         d.qtd_ies as "Qtd IES",
         ROUND(d.nota_media_categoria, 3) as "Nota Média",
         d.total_alunos_categoria as "Total Alunos"
-    FROM distribuicao_por_estado d
+    FROM distribuicao_por_municipio d
     
     ORDER BY d.nota_media_categoria DESC, d.qtd_ies DESC;
     """
     result5 = con.execute(query5).df()
     print(result5.to_string(index=False))
-    salvar_resultado_txt(result5, "5. DISTRIBUIÇÃO GEOGRÁFICA DAS IES POR QUALIDADE", arquivo_resultados)
+    salvar_resultado_txt(result5, "5. DISTRIBUIÇÃO GEOGRÁFICA DAS IES POR QUALIDADE (POR MUNICÍPIO)", arquivo_resultados)
     con.close()
 
 if __name__ == "__main__":
