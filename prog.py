@@ -318,28 +318,18 @@ def main():
     print("\n1. RANKING DE ESTADOS POR PERFORMANCE IDEB")
     print("-"*60)
     query1 = """
-    WITH estados_ideb AS (
-        SELECT 
-            SIGLA_UF,
-            AVG(IDEB_NOTA) as media_ideb,
-            COUNT(DISTINCT CODIGO_ESCOLA) as total_escolas,
-            MIN(IDEB_NOTA) as min_ideb,
-            MAX(IDEB_NOTA) as max_ideb,
-            PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY IDEB_NOTA) as mediana_ideb
-        FROM Escola 
-        WHERE IDEB_NOTA IS NOT NULL
-        GROUP BY SIGLA_UF
-    )
     SELECT 
-        e.SIGLA_UF,
-        (SELECT NOME_UF FROM Municipio m WHERE m.SIGLA_UF = e.SIGLA_UF LIMIT 1) as NOME_UF,
-        ROUND(e.media_ideb, 3) as "IDEB Médio",
-        e.total_escolas as "Total Escolas",
-        ROUND(e.min_ideb, 3) as "IDEB Mínimo",
-        ROUND(e.max_ideb, 3) as "IDEB Máximo",
-        ROUND(e.mediana_ideb, 3) as "IDEB Mediana"
-    FROM estados_ideb e
-    ORDER BY e.media_ideb DESC
+        SIGLA_UF,
+        (SELECT NOME_UF FROM Municipio m WHERE m.SIGLA_UF = Escola.SIGLA_UF LIMIT 1) as NOME_UF,
+        ROUND(AVG(IDEB_NOTA), 3) as "IDEB Médio",
+        COUNT(DISTINCT CODIGO_ESCOLA) as "Total Escolas",
+        ROUND(MIN(IDEB_NOTA), 3) as "IDEB Mínimo",
+        ROUND(MAX(IDEB_NOTA), 3) as "IDEB Máximo",
+        ROUND(PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY IDEB_NOTA), 3) as "IDEB Mediana"
+    FROM Escola 
+    WHERE IDEB_NOTA IS NOT NULL
+    GROUP BY SIGLA_UF
+    ORDER BY AVG(IDEB_NOTA) DESC
     LIMIT 10;
     """
     result1 = con.execute(query1).df()
@@ -376,7 +366,6 @@ def main():
     """
     result2 = con.execute(query2).df()
     print(result2.to_string(index=False))
-    salvar_resultado_txt(result2, "2. TOP CURSOS POR NOTA ENADE", arquivo_resultados)
     salvar_resultado_txt(result2, "2. TOP CURSOS POR NOTA ENADE", arquivo_resultados)
     
     # CONSULTA 3: Análise Temporal do IDEB
@@ -415,23 +404,11 @@ def main():
     print(result3.to_string(index=False))
     salvar_resultado_txt(result3, "3. EVOLUÇÃO TEMPORAL DO IDEB POR ESTADO", arquivo_resultados)
     
-    # CONSULTA 4: Comparação Detalhada de Redes de Ensino
-    print("\n\n4. ANÁLISE COMPARATIVA DETALHADA DE REDES DE ENSINO")
+    # CONSULTA 4: Análise Comparativa das Categorias de IES
+    print("\n\n4. ANÁLISE COMPARATIVA DAS CATEGORIAS DE IES")
     print("-"*60)
     query4 = """
-    WITH escolas_por_rede AS (
-        SELECT 
-            SIGLA_UF,
-            REDE_ESCOLA,
-            COUNT(DISTINCT CODIGO_ESCOLA) as total_escolas,
-            AVG(IDEB_NOTA) as ideb_medio,
-            AVG(SAEB_NOTA_MAT) as saeb_mat_medio,
-            AVG(SAEB_NOTA_PORT) as saeb_port_medio
-        FROM Escola
-        WHERE IDEB_NOTA IS NOT NULL AND REDE_ESCOLA IN ('Estadual', 'Federal', 'Privada')
-        GROUP BY SIGLA_UF, REDE_ESCOLA
-    ),
-    ies_por_categoria AS (
+    WITH ies_por_categoria AS (
         SELECT 
             SIGLA_UF,
             CASE 
@@ -447,18 +424,6 @@ def main():
         WHERE NOTA_ENADE_CONTINUA IS NOT NULL
         GROUP BY SIGLA_UF, categoria_ies
     ),
-    escolas_consolidado AS (
-        SELECT 
-            SIGLA_UF,
-            MAX(CASE WHEN REDE_ESCOLA = 'Estadual' THEN total_escolas END) as escolas_estadual,
-            MAX(CASE WHEN REDE_ESCOLA = 'Federal' THEN total_escolas END) as escolas_federal,
-            MAX(CASE WHEN REDE_ESCOLA = 'Privada' THEN total_escolas END) as escolas_privada,
-            MAX(CASE WHEN REDE_ESCOLA = 'Estadual' THEN ideb_medio END) as ideb_estadual,
-            MAX(CASE WHEN REDE_ESCOLA = 'Federal' THEN ideb_medio END) as ideb_federal,
-            MAX(CASE WHEN REDE_ESCOLA = 'Privada' THEN ideb_medio END) as ideb_privada
-        FROM escolas_por_rede
-        GROUP BY SIGLA_UF
-    ),
     ies_consolidado AS (
         SELECT 
             SIGLA_UF,
@@ -472,80 +437,72 @@ def main():
         GROUP BY SIGLA_UF
     )
     SELECT 
-        e.SIGLA_UF,
-        (SELECT NOME_UF FROM Municipio m WHERE m.SIGLA_UF = e.SIGLA_UF LIMIT 1) as "Estado",
-        COALESCE(e.escolas_estadual, 0) as "Esc. Estadual",
-        COALESCE(e.escolas_federal, 0) as "Esc. Federal", 
-        COALESCE(e.escolas_privada, 0) as "Esc. Privada",
-        ROUND(COALESCE(e.ideb_estadual, 0), 3) as "IDEB Estadual",
-        ROUND(COALESCE(e.ideb_federal, 0), 3) as "IDEB Federal",
-        ROUND(COALESCE(e.ideb_privada, 0), 3) as "IDEB Privada",
+        i.SIGLA_UF,
+        (SELECT NOME_UF FROM Municipio m WHERE m.SIGLA_UF = i.SIGLA_UF LIMIT 1) as "Estado",
         COALESCE(i.ies_publica_federal, 0) as "IES Públ Fed",
         COALESCE(i.ies_privada_sem_fins, 0) as "IES Priv S/Fins",
         COALESCE(i.ies_privada_com_fins, 0) as "IES Priv C/Fins",
         ROUND(COALESCE(i.enade_publica_federal, 0), 3) as "ENADE Públ Fed",
         ROUND(COALESCE(i.enade_privada_sem_fins, 0), 3) as "ENADE Priv S/Fins",
         ROUND(COALESCE(i.enade_privada_com_fins, 0), 3) as "ENADE Priv C/Fins"
-    FROM escolas_consolidado e
-    LEFT JOIN ies_consolidado i ON e.SIGLA_UF = i.SIGLA_UF
-    WHERE (e.escolas_estadual > 0 OR e.escolas_federal > 0 OR e.escolas_privada > 0)
-       OR (i.ies_publica_federal > 0 OR i.ies_privada_sem_fins > 0 OR i.ies_privada_com_fins > 0)
-    ORDER BY COALESCE(i.enade_publica_federal, 0) DESC, COALESCE(e.ideb_federal, 0) DESC
+    FROM ies_consolidado i
+    WHERE (i.ies_publica_federal > 0 OR i.ies_privada_sem_fins > 0 OR i.ies_privada_com_fins > 0)
+    ORDER BY COALESCE(i.enade_publica_federal, 0) DESC, COALESCE(i.enade_privada_sem_fins, 0) DESC
     LIMIT 20;
     """
     result4 = con.execute(query4).df()
     print(result4.to_string(index=False))
-    salvar_resultado_txt(result4, "4. ANÁLISE COMPARATIVA DETALHADA DE REDES DE ENSINO", arquivo_resultados)
+    salvar_resultado_txt(result4, "4. ANÁLISE COMPARATIVA DAS CATEGORIAS DE IES", arquivo_resultados)
     
-    # CONSULTA 5: Análise de Distribuição Geográfica das IES
-    print("\n\n5. DISTRIBUIÇÃO GEOGRÁFICA DAS IES POR QUALIDADE")
+    # CONSULTA 5: Distribuição Geográfica das Escolas por Qualidade
+    print("\n\n5. DISTRIBUIÇÃO GEOGRÁFICA DAS ESCOLAS POR QUALIDADE")
     print("-"*60)
     query5 = """
-    WITH ies_qualidade AS (
+    WITH escolas_qualidade AS (
         SELECT 
-            CODIGO_IES,
-            NOME_IES,
+            CODIGO_ESCOLA,
+            NOME_ESCOLA,
             SIGLA_UF,
             NOME_MUNICIPIO,
-            AVG(NOTA_ENADE_CONTINUA) as nota_media_ies,
-            COUNT(DISTINCT NOME_CURSO) as cursos_oferecidos,
-            SUM(TOTAL_INSCRITOS) as total_alunos,
+            REDE_ESCOLA,
+            AVG(IDEB_NOTA) as nota_media_escola,
+            AVG(SAEB_NOTA_MAT) as saeb_mat_medio,
+            AVG(SAEB_NOTA_PORT) as saeb_port_medio,
+            COUNT(DISTINCT ANO_ESCOLA) as anos_avaliados,
             CASE 
-                WHEN AVG(NOTA_ENADE_CONTINUA) >= 4.0 THEN 'Excelente'
-                WHEN AVG(NOTA_ENADE_CONTINUA) >= 3.0 THEN 'Boa'
-                WHEN AVG(NOTA_ENADE_CONTINUA) >= 2.0 THEN 'Regular'
+                WHEN AVG(IDEB_NOTA) >= 6.0 THEN 'Excelente'
+                WHEN AVG(IDEB_NOTA) >= 5.0 THEN 'Boa'
+                WHEN AVG(IDEB_NOTA) >= 4.0 THEN 'Regular'
                 ELSE 'Baixa'
             END as categoria_qualidade
-        FROM Curso
-        WHERE NOTA_ENADE_CONTINUA IS NOT NULL
-        GROUP BY CODIGO_IES, NOME_IES, SIGLA_UF, NOME_MUNICIPIO
-        HAVING COUNT(DISTINCT NOME_CURSO) >= 3  -- IES com pelo menos 3 cursos
+        FROM Escola
+        WHERE IDEB_NOTA IS NOT NULL
+        GROUP BY CODIGO_ESCOLA, NOME_ESCOLA, SIGLA_UF, NOME_MUNICIPIO, REDE_ESCOLA
+        HAVING COUNT(DISTINCT ANO_ESCOLA) >= 2  -- Escolas com pelo menos 2 anos de avaliação
     ),
     distribuicao_por_municipio AS (
         SELECT 
             SIGLA_UF,
             NOME_MUNICIPIO,
             categoria_qualidade,
-            COUNT(*) as qtd_ies,
-            AVG(nota_media_ies) as nota_media_categoria,
-            SUM(total_alunos) as total_alunos_categoria
-        FROM ies_qualidade
+            COUNT(*) as qtd_escolas,
+            AVG(nota_media_escola) as nota_media_categoria
+        FROM escolas_qualidade
         GROUP BY SIGLA_UF, NOME_MUNICIPIO, categoria_qualidade
     )
     SELECT 
         d.SIGLA_UF as "UF",
         d.NOME_MUNICIPIO as "Município",
         d.categoria_qualidade as "Categoria",
-        d.qtd_ies as "Qtd IES",
-        ROUND(d.nota_media_categoria, 3) as "Nota Média",
-        d.total_alunos_categoria as "Total Alunos"
+        d.qtd_escolas as "Qtd Escolas",
+        ROUND(d.nota_media_categoria, 3) as "IDEB Médio"
     FROM distribuicao_por_municipio d
     
-    ORDER BY d.nota_media_categoria DESC, d.qtd_ies DESC;
+    ORDER BY d.nota_media_categoria DESC, d.qtd_escolas DESC;
     """
     result5 = con.execute(query5).df()
     print(result5.to_string(index=False))
-    salvar_resultado_txt(result5, "5. DISTRIBUIÇÃO GEOGRÁFICA DAS IES POR QUALIDADE (POR MUNICÍPIO)", arquivo_resultados)
+    salvar_resultado_txt(result5, "5. DISTRIBUIÇÃO GEOGRÁFICA DAS ESCOLAS POR QUALIDADE (POR MUNICÍPIO)", arquivo_resultados)
     con.close()
 
 if __name__ == "__main__":
